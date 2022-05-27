@@ -1,26 +1,17 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import firebase from "firebase/compat/app";
-import "firebase/compat/auth";
 import "firebase/compat/firestore";
+import { SignInForm } from "./screens/SignIn/SignInForm";
+import { loadAuth } from "./store/AuthStore";
 
 function App() {
+  // why did i do this i dont know
+  const userToken = loadAuth();
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <SignInForm />
       </header>
     </div>
   );
