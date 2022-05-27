@@ -4,24 +4,22 @@ import "./App.css";
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import "firebase/compat/firestore";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Piece from "./pages/Piece";
+import UserProfile from "./pages/UserProfile";
 
 function App() {
+  const variable = "this is props";
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home data={variable} />} />
+          <Route path="/user" element={<UserProfile data={variable} />} />
+          <Route path="/user/:pieceName" element={<Piece data={variable} />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
