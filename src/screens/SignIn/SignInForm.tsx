@@ -10,14 +10,11 @@ export const SignInForm = () => {
     const auth = getAuth()
 
     const onEmailChange = useCallback((e) => {
-        console.log(e.target.value)
         setEmail(e.target.value)
     }, [])
     const onPasswordChange = useCallback((e) => { setPassword(e.target.value) }, [])
-    console.log({ email, password })
 
     const onSubmit = useCallback(() => {
-        console.log({ email, password })
         submit(email, password)
     }, [email, password])
 

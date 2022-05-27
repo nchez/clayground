@@ -9,8 +9,6 @@ export const useSubmitSignIn = () => {
     const submit = useCallback(async (email: string, password: string) => {
         await setPersistence(auth, browserSessionPersistence)
         await signInWithEmailAndPassword(auth, email, password)
-
-        console.log({ auth })
     }, [])
 
     return { submit };
