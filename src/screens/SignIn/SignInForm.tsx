@@ -8,7 +8,6 @@ export const SignInForm = () => {
     const { submit } = useSubmitSignIn();
 
     const auth = getAuth()
-    console.log({ currentUser: auth.currentUser })
 
     const onEmailChange = useCallback((e) => {
         console.log(e.target.value)

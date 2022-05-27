@@ -1,7 +1,5 @@
 import React, { useCallback } from 'react'
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { saveAuth } from '../../../store/AuthStore';
-
+import { browserSessionPersistence, getAuth, setPersistence, signInWithEmailAndPassword } from "firebase/auth";
 
 
 export const useSubmitSignIn = () => {
@@ -9,9 +7,10 @@ export const useSubmitSignIn = () => {
 
 
     const submit = useCallback(async (email: string, password: string) => {
-        const userCredential = await signInWithEmailAndPassword(auth, email, password)
-        const token = await userCredential.user.getIdToken()
-        saveAuth(token)
+        await setPersistence(auth, browserSessionPersistence)
+        await signInWithEmailAndPassword(auth, email, password)
+
+        console.log({ auth })
     }, [])
 
     return { submit };
