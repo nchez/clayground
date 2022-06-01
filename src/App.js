@@ -7,14 +7,13 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./screens/Home";
 import Piece from "./screens/Piece";
 import UserProfile from "./screens/UserProfile";
+import Navbar from "./screens/components/Navbar";
 
 function App() {
   const variable = "this is props";
   return (
     <div className="App">
-      <header className="App-header">
-        <SignInForm />
-      </header>
+      <Navbar />
       <Router>
         <Routes>
           <Route path="/" element={<Home data={variable} />} />

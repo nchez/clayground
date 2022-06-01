@@ -36,3 +36,44 @@
     transform: rotate(360deg);
   }
 }
+
+.navbar-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-item {
+  display: inline;
+  padding: 5px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.navbar-item a:hover {
+  background-color: rgba(119, 214, 116, 0.6);
+}
+
+.dropdown-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  padding: 5px;
+  z-index: 1;
+}
+
+.dropdown-item {
+  border: 1px solid black;
+  background: white;
+  padding: 5px;
+}
+
+.dropdown-wrapper:hover .dropdown-content {
+  display: block;
+}
