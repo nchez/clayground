@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { Suspense, useCallback, useEffect } from "react";
 import "./App.css";
 import "firebase/compat/firestore";
 import { SignInForm } from "./screens/SignIn/SignInForm";
@@ -16,11 +16,11 @@ import { userAtom } from "./store/auth/userAtom";
 function App() {
   return (
     <div className="App">
-      <Navbar />
-
-      <RecoilRoot>
-        <AppRouter />
-      </RecoilRoot>
+      <Suspense>
+        <RecoilRoot>
+          <AppRouter />
+        </RecoilRoot>
+      </Suspense>
     </div>
   );
 }
@@ -43,11 +43,14 @@ function SignedOutNavigator() {
 
 function SignedInNavigator() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/user" element={<UserProfile />} />
-      <Route path="/user/:pieceName" element={<Piece />} />
-    </Routes>
+    <>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/user" element={<UserProfile />} />
+        <Route path="/user/:pieceName" element={<Piece />} />
+      </Routes>
+    </>
   );
 }
 

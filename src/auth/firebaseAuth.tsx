@@ -24,7 +24,6 @@ const app = initializeApp(firebaseConfig);
 export const auth: Auth = getAuth();
 setPersistence(auth, browserSessionPersistence)
 
-
 auth.onAuthStateChanged((user) => {
     if (user) {
         // User is signed in, see docs for a list of available properties
@@ -42,7 +41,5 @@ export const signInWithEmail = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password)
 }
 
-export const signOutUser = () => {
-    signOut(auth)
-}
+export const signOutUser = () => signOut(auth)
 
