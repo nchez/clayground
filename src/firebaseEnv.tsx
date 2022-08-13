@@ -1,0 +1,1 @@
+export const FIREBASE_ROOT = "https://clayground-9ea69-default-rtdb.firebaseio.com"

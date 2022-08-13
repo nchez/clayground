@@ -2,8 +2,9 @@ import { atom } from "recoil";
 
 type UserAtomType = {
     email: string
+    username: string,
+    profile_picture: string,
 }
-
 
 const localStorageEffect = key => ({ setSelf, onSet }) => {
     const savedValue = localStorage.getItem(key)
