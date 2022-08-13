@@ -1,17 +1,10 @@
-import { getAuth } from "firebase/auth";
 import React, { useState, useCallback } from "react";
-import { useRecoilValue, useSetRecoilState } from "recoil";
-import { userAtom } from "../../store/auth/userAtom";
 import { useSubmitSignIn } from "./hooks/useSubmitSignIn";
 
 export const SignInForm = () => {
-    const [email, setEmail] = useState("shelleyrsuhling@gmail.com");
-    const [password, setPassword] = useState("testaccount22");
+    const [email, setEmail] = useState(undefined);
+    const [password, setPassword] = useState(undefined);
     const { submit } = useSubmitSignIn();
-    const setUser = useSetRecoilState(userAtom)
-    const user = useRecoilValue(userAtom);
-
-
 
     const onEmailChange = useCallback((e) => {
         setEmail(e.target.value)
