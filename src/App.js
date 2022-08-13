@@ -1,15 +1,12 @@
-import React, { Suspense, useCallback, useEffect } from "react";
+import React, { Suspense } from "react";
 import "./App.css";
 import "firebase/compat/firestore";
-import { SignInForm } from "./screens/SignIn/SignInForm";
-import { getAuth } from "firebase/auth";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./screens/Home";
 import Piece from "./screens/Piece";
 import Navbar from "./screens/components/Navbar";
 import UserProfile from "./screens/UserProfile";
 import { RecoilRoot, useRecoilValue } from "recoil";
-import { authStateListener } from "./auth/firebaseAuth";
 import SignIn from "./screens/SignIn";
 import { userAtom } from "./store/auth/userAtom";
 

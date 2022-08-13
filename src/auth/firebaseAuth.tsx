@@ -1,8 +1,6 @@
 
-import { getAnalytics } from "firebase/analytics";
-import firebase, { initializeApp } from "firebase/app";
+import { initializeApp } from "firebase/app";
 import { Auth, browserSessionPersistence, getAuth, setPersistence, signInWithCredential, signInWithEmailAndPassword, signInWithRedirect, signOut } from "firebase/auth";
-import { userAtom } from "../store/auth/userAtom";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
