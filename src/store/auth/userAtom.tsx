@@ -1,7 +1,25 @@
-import { atom, useRecoilValue } from "recoil";
+import { atom } from "recoil";
 
-export const userAtom = atom<string>({
+type UserAtomType = {
+    email: string
+}
+
+
+const localStorageEffect = key => ({ setSelf, onSet }) => {
+    const savedValue = localStorage.getItem(key)
+    if (savedValue != null) {
+        setSelf(JSON.parse(savedValue));
+    }
+
+    onSet((newValue, _, isReset) => {
+        isReset
+            ? localStorage.removeItem(key)
+            : localStorage.setItem(key, JSON.stringify(newValue));
+    });
+};
+export const userAtom = atom<UserAtomType>({
     key: 'user-atom',
     default: null,
+    effects: [localStorageEffect('user-atom')]
 });
 

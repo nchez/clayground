@@ -1,17 +1,15 @@
-import React, { useCallback, useEffect } from 'react'
-import { browserSessionPersistence, getAuth, setPersistence, signInWithEmailAndPassword } from "firebase/auth";
+import { useCallback } from 'react'
 import { userAtom } from '../../../store/auth/userAtom';
-import { useRecoilState, useSetRecoilState } from 'recoil';
+import { useRecoilState } from 'recoil';
 import { signInWithEmail } from '../../../auth/firebaseAuth';
 
-
-export const useSubmitSignIn = () => {
+export const useCallSignIn = () => {
     const [_user, setUser] = useRecoilState(userAtom);
 
-    const submit = useCallback(async (email: string, password: string) => {
-        const { user: authedUser } = await signInWithEmail(email, password)
-        setUser(authedUser.email)
-    }, [])
 
-    return { submit };
+    return useCallback(async (email: string, password: string) => {
+        const { user: authedUser } = await signInWithEmail(email, password)
+        setUser({ email: authedUser.email })
+
+    }, [])
 };
