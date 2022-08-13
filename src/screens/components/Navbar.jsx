@@ -11,6 +11,7 @@ export default function Navbar() {
 
   return (
     <div style={{ marginTop: "5px" }}>
+      <img src={user.profile_picture} width={50} />
       {!!user && <>Welcome {user.email}</>}
       <div className="navbar-list">
         <div className="navbar-item">
