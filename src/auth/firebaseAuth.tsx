@@ -24,10 +24,8 @@ const app = initializeApp(firebaseConfig);
 export const auth: Auth = getAuth();
 setPersistence(auth, browserSessionPersistence)
 
-// signOut(auth)
 
 auth.onAuthStateChanged((user) => {
-    console.log("onauthstatechage", user);
     if (user) {
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/firebase.User

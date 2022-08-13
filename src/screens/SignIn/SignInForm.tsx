@@ -20,14 +20,7 @@ export const SignInForm = () => {
     const onPasswordChange = useCallback((e) => { setPassword(e.target.value) }, [])
 
     const onSubmit = useCallback(async () => {
-        console.log('hit')
         await submit(email, password)
-
-        // if (!!auth.currentUser) {
-        //     console.log('settinguser')
-        //     console.log({ user })
-        // }
-        console.log('hit2',)
     }, [email, password])
 
 
