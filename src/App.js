@@ -28,8 +28,6 @@ function App() {
 function AppRouter() {
   const user = useRecoilValue(userAtom);
 
-  console.log({ USER: user });
-
   return (
     <Router>{user ? <SignedInNavigator /> : <SignedOutNavigator />}</Router>
   );
