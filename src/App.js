@@ -6,6 +6,7 @@ import { getAuth } from "firebase/auth";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./screens/Home";
 import Piece from "./screens/Piece";
+import Navbar from "./screens/components/Navbar";
 import UserProfile from "./screens/UserProfile";
 import { RecoilRoot, useRecoilValue } from "recoil";
 import { authStateListener } from "./auth/firebaseAuth";
@@ -16,13 +17,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <Router>
-        <Routes>
-          <Route path="/" element={<Home data={variable} />} />
-          <Route path="/user" element={<UserProfile data={variable} />} />
-          <Route path="/user/:pieceName" element={<Piece data={variable} />} />
-        </Routes>
-      </Router>
+
       <RecoilRoot>
         <AppRouter />
       </RecoilRoot>
